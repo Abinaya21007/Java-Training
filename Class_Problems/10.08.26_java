@@ -1,6 +1,3 @@
-find whether the date is valid or not ???
-  
-
 find whether the number is prime or not ?
 import java.util.*;
 class Main {
@@ -42,6 +39,27 @@ class Main {
         }
         System.out.println("odd"+odd);
         System.out.println("even"+even);
+    }
+}
+
+
+import java.util.Scanner;
+class employee{
+    int emp_id;
+    String name;
+    double salary;
+    employee(int emp_id,String name,double salary){
+        this.emp_id=emp_id;
+        this.name=name;
+        this.salary=salary;
+    }
+    void Address(){
+        Scanner s=new Scanner(System.in);
+        String addr=s.nextLine();
+        System.out.println("Emp id"+emp_id);
+        System.out.println("Emp name"+name);
+        System.out.println("Emp salary"+salary);
+        System.out.println("Emp Address"+addr);
     }
 }
 
