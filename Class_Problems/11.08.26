@@ -101,29 +101,6 @@ class second_java{
         }
     }
 
-
-import java.util.Scanner;
-class employee{
-    int emp_id;
-    String name;
-    double salary;
-    employee(int emp_id,String name,double salary){
-        this.emp_id=emp_id;
-        this.name=name;
-        this.salary=salary;
-    }
-    void Address(){
-        Scanner s=new Scanner(System.in);
-        String addr=s.nextLine();
-        System.out.println("Emp id"+emp_id);
-        System.out.println("Emp name"+name);
-        System.out.println("Emp salary"+salary);
-        System.out.println("Emp Address"+addr);
-    }
-}
-
-
-
 2. INHERITANCE 
 
 import java.util.*;
