@@ -1,0 +1,225 @@
+import java.util.*;
+class student{
+    int id;
+    String name;
+    int tm;
+    int m[]=new int[5];
+    int avg;
+    char g;
+    void get_sd(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter id");
+        id=sc.nextInt();
+        sc.nextLine();
+        System.out.println("enter name");
+        name=sc.nextLine();
+        System.out.println("enter five marks");
+        for(int i=0;i<5;i++){
+            m[i]=sc.nextInt();
+        }
+        
+    }
+    void total(){
+        for(int i=0;i<5;i++){
+            tm=tm+m[i];
+        }
+        if(tm<=250){
+            g='c';
+        }
+        else if(tm>250 && tm <370){
+            g='B';
+        }
+        else{
+            g='A';
+        }
+        avg=tm/5;
+    }
+    void display(){
+        System.out.println("id"+ id);
+        System.out.println("total mark"+tm);
+        System.out.println("avg"+avg);
+        System.out.println("grade"+g);
+        System.out.println("name"+ name);
+    }
+}
+public class java_training{
+    public static void main(String args[]){
+        student s1=new student();
+        student s2=new student();
+        student s3=new student();
+        student s4=new student();
+        student s5=new student();
+        s2.get_sd();
+        s2.total();
+        s2.display();
+         s1.get_sd();
+        s1.total();
+        s1.display();
+        if(s1.tm > s2.tm){
+            System.out.println("first student is higher");
+        }
+        else{
+            System.out.println("secomd is higher");
+        }
+        if(s1.tm < s2.tm){
+            System.out.println("first student is lower");
+        }
+        else{
+            System.out.println("secomd is lower");
+        }
+    }
+}
+
+2.
+
+import java.util.*;
+class bank{
+    int no;
+    String name;
+    String type;
+    int balance;
+    void getinfo(){
+        Scanner s =new  Scanner(System.in);
+        no=s.nextInt();
+        s.nextLine();
+        name=s.nextLine();
+        type=s.nextLine();
+        balance=s.nextInt();
+        System.out.println("number "+no);
+        System.out.println("name "+name);
+        System.out.println("type of account "+type);
+        System.out.println("balance "+balance);
+    }
+    void deposit(){
+        int amt;
+        Scanner s =new  Scanner(System.in);
+        System.out.println("enter amt");
+        amt=s.nextInt();
+        balance+=amt;
+                System.out.println(balance);
+    }
+    void withdraw(){
+        int amt;
+        Scanner s =new  Scanner(System.in);
+        System.out.println("enter amt");
+        amt=s.nextInt();
+        balance-=amt;
+        System.out.println(balance);
+    }
+    void transfer(){
+        int bal;
+        Scanner s =new  Scanner(System.in);
+        System.out.println("enter amt");
+        bal=s.nextInt();
+        balance-=bal;
+        System.out.println(balance);
+    }
+    
+}
+class java_training{
+    public static void main(String args[]){
+        bank b=new bank();
+        b.getinfo();
+        b.deposit();
+        b.transfer();
+        b.withdraw();
+    }
+}
+
+3.
+import java.util.*;
+class product{
+    int no;
+    String name;
+    int price;
+    int q;
+    void getinfo(){
+        Scanner s =new  Scanner(System.in);
+        no=s.nextInt();
+        s.nextLine();
+        name=s.nextLine();
+        price=s.nextInt();
+        q=s.nextInt();
+        System.out.println("id "+no);
+        System.out.println("name "+name);
+        System.out.println("price "+price);
+        System.out.println("quantity"+q);
+    }
+    int totalprice(){
+        System.out.println("total price "+price*q);
+        return price*q;
+    }
+    double discount(){
+        System.out.println("discount "+(price*q)*0.05);
+        return price*q-(price*q)*0.05;
+}
+    
+}
+class java_training{
+    public static void main(String args[]){
+        product b=new product();
+        product b1=new product();
+        b.getinfo();
+        b.totalprice();
+        b.discount();
+         b1.getinfo();
+        b1.totalprice();
+        b1.discount();
+        int s=b.totalprice()+b1.totalprice();
+        double gst=(s-(b.discount()+b1.discount()));
+        System.out.println("total price "+s);
+        System.out.println("gst "+gst);
+    }
+}
+
+4.
+
+import java.util.*;
+class employee{
+    int no;
+    String name;
+    double price; // salary ==price
+    double hra;
+    double tax;
+    double gross;
+    double net;
+    double bonus;
+    void getinfo(){
+        Scanner s =new  Scanner(System.in);
+        no=s.nextInt();
+        s.nextLine();
+        name=s.nextLine();
+        price=s.nextInt();
+    }
+    void totalprice(){
+        hra=price*0.10;
+        bonus=price*0.05;
+        gross=hra+bonus+price;
+        tax=gross*0.02;
+        net=gross-tax;
+    }
+    void display(){
+        System.out.println("id "+no);
+        System.out.println("name "+name);
+        System.out.println("salary "+price);
+        System.out.println("hra "+hra);
+        System.out.println("bonus "+bonus);
+        System.out.println("gross amt "+gross);
+        System.out.println("tax "+tax);
+        System.out.println("net amt"+net);
+
+}
+    
+}
+class java_training{
+    public static void main(String args[]){
+        employee b=new employee();
+        employee b1=new employee();
+        b.getinfo();
+        b.totalprice();
+        b.display();
+         b1.getinfo();
+        b1.totalprice();
+        b1.display();
+    }
+}
