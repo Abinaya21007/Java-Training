@@ -1,0 +1,468 @@
+import java.util.*;
+class student{
+    // subject, mark , staff
+    int roll;
+    String name;
+    void get_details(){
+        Scanner s=new Scanner(System.in);
+        roll=s.nextInt();
+        s.nextLine();
+        name=s.nextLine();
+        System.out.println(" roll number "+ roll);
+        System.out.println(" name "+ name);
+
+    }
+    class esiot{
+        int subcode;
+        int mark;
+        String staff;
+        void get_details(){
+        Scanner s=new Scanner(System.in);
+        subcode=s.nextInt();
+        mark=s.nextInt();
+        s.nextLine();
+        staff=s.nextLine();
+
+    }
+    void display(){
+        System.out.println(" subcode "+ subcode);
+        System.out.println(" Mark "+ mark);
+        System.out.println(" staff "+ staff);
+    }
+    }
+    class D_A{
+        int subcode;
+        int mark;
+        String staff;
+        void get_details(){
+            Scanner s=new Scanner(System.in);
+            subcode=s.nextInt();
+            mark=s.nextInt();
+            s.nextLine();
+            staff=s.nextLine();
+        }
+        void display(){
+            System.out.println(" subcode "+ subcode);
+            System.out.println(" Mark "+ mark);
+            System.out.println(" staff "+ staff);
+        }
+    }
+    class AI{
+        int subcode;
+        int mark;
+        String staff;
+        void get_details(){
+            Scanner s=new Scanner(System.in);
+            subcode=s.nextInt();
+            mark=s.nextInt();
+            s.nextLine();
+            staff=s.nextLine();
+        }
+        void display(){
+            System.out.println(" subcode "+ subcode);
+            System.out.println(" Mark "+ mark);
+            System.out.println(" staff "+ staff);
+        }
+    }
+    class ML{
+        int subcode;
+        int mark;
+        String staff;
+        void get_details(){
+            Scanner s=new Scanner(System.in);
+            subcode=s.nextInt();
+            mark=s.nextInt();
+            s.nextLine();
+            staff=s.nextLine();
+        }
+        void display(){
+            System.out.println(" subcode "+ subcode);
+            System.out.println(" Mark "+ mark);
+            System.out.println(" staff "+ staff);
+        }
+    }
+}
+class second_java{
+        public static void main(String args[]){
+            student s=new student();
+            student.esiot es=s.new esiot();
+            student.D_A d=s.new D_A();
+            student.AI ai=s.new AI();
+            student.ML ml=s.new ML();
+            s.get_details();
+            es.get_details();
+            es.display();
+            d.get_details();
+            d.display();
+            ai.get_details();
+            ai.display();
+            ml.get_details();
+            ml.display();
+        }
+    }
+
+ find whether the date is valid or not ???
+
+
+find whether the number is prime or not ?
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int c=0;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0){
+                System.out.println("not a prime");
+                c=1;
+                break;
+            }
+        }
+        if(c==0){
+            System.out.println("is a prime");
+        }
+    }
+}
+
+form odd and even numbers from the given number and find the abolute diff between them.
+
+// Online Java Compiler
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int even=0;
+        int odd=0;
+        while(n>0){
+            int c=n%10;
+            if(c%2==0){
+                even=(even*10)+c;
+            }
+            else{
+                odd=(odd*10)+c;
+            }
+            n/=10;
+        }
+        System.out.println("odd"+odd);
+        System.out.println("even"+even);
+    }
+}
+
+
+import java.util.Scanner;
+class employee{
+    int emp_id;
+    String name;
+    double salary;
+    employee(int emp_id,String name,double salary){
+        this.emp_id=emp_id;
+        this.name=name;
+        this.salary=salary;
+    }
+    void Address(){
+        Scanner s=new Scanner(System.in);
+        String addr=s.nextLine();
+        System.out.println("Emp id"+emp_id);
+        System.out.println("Emp name"+name);
+        System.out.println("Emp salary"+salary);
+        System.out.println("Emp Address"+addr);
+    }
+}
+
+
+
+2. INHERITANCE 
+
+import java.util.*;
+class person{
+    // student, child, customer, visitor --clases
+    String name;
+    String work;
+    void activity(){
+        Scanner s=new Scanner(System.in);
+        System.out.println(" enter name and work");
+        name=s.nextLine();
+        work=s.nextLine();
+        String act=s.nextLine();
+        System.out.println(" name "+ name);
+        System.out.println(" work "+ work);
+        System.out.println(" activity "+ act);
+    }
+}
+class student extends person{
+    void activity4(){
+        System.out.println("this is student class give me the total mark");
+        Scanner s=new Scanner(System.in);
+        int m=s.nextInt();
+        if(m<350){
+        System.out.println("mark is low improve the ,mark becz u have c grade");
+        }
+        else if( m >=350 && m<415 ){
+        System.out.println("good u got b grade ");
+        }
+        else{
+            System.out.println("veruy good u have  A grade");
+        }
+    }
+}
+class child extends student{
+    void activity3(){
+        Scanner s=new Scanner(System.in);
+        String act=s.nextLine();
+        System.out.println(" name "+ name);
+        System.out.println(" work "+ work);
+        System.out.println(" activity "+ act);
+    }
+}
+class customer extends child{
+    void activity2(){
+        System.out.println("enter number of products bought");
+        Scanner s=new Scanner(System.in);
+        int m=s.nextInt();
+        System.out.println(m);
+    }
+}
+class visitor extends customer{
+    void activity1(){
+        System.out.println("enter the relation's house u went");
+        Scanner s=new Scanner(System.in);
+        String m=s.nextLine();
+        System.out.println(m);
+    }
+}
+class second_java{
+        public static void main(String args[]){
+            visitor s=new visitor();
+            s.activity();
+            s.activity1();
+            s.activity3();
+            s.activity2();
+            s.activity4();
+        }
+    }
+
+    ABSTRACT CLASS:
+
+    import java.util.*;
+abstract class Management{
+    int code;
+    String clg_name;
+    abstract void display();
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        code=sc.nextInt();
+        sc.nextLine();
+        clg_name=sc.nextLine();
+    }
+}
+class student extends Management{
+    void display(){
+        System.out.println("college code "+code);
+        System.out.println("college name "+clg_name);
+    }
+}
+class second_java{
+        public static void main(String args[]){
+            student s=new student();
+            s.get_details();
+            s.display();
+        }
+    }
+
+INTERFACE
+
+import java.util.*;
+interface Management{
+    void fees_details();
+    void get_info();
+}
+class student implements Management{
+    int roll;
+    String name;
+    String truste;
+    public void get_info(){
+        Scanner sc=new Scanner(System.in);
+        roll=sc.nextInt();
+        sc.nextLine();
+        name=sc.nextLine();
+        truste=sc.nextLine();
+    }
+    public void fees_details(){
+        Scanner sc=new Scanner(System.in);
+        int fees=sc.nextInt();
+        System.out.println("college truste "+truste);
+        System.out.println("student name "+name);
+        System.out.println("student roll number "+roll);
+        System.out.println("student fees amount "+fees);
+    }
+}
+class second_java{
+        public static void main(String args[]){
+            student s=new student();
+            s.get_info();
+            s.fees_details();
+        }
+    }
+
+2 nd Example of inheritance:
+
+import java.util.*;
+class Management{
+    // student, child, customer, visitor --clases
+    String name;
+    int legacy;
+    void activity(){
+        Scanner s=new Scanner(System.in);
+        name=s.nextLine();
+        legacy=s.nextInt();
+        System.out.println(" the trust name "+name);
+        System.out.println("legacy of the trust "+legacy);
+        int amt=s.nextInt();
+        System.out.println("enter the amt of the clg maintanence "+amt);
+    }
+}
+class  school extends Management{
+    String scl;
+    int no_yrs;
+    void schl1(){
+        Scanner s=new Scanner(System.in);
+        scl=s.nextLine();
+        no_yrs=s.nextInt();
+        System.out.println("school name "+scl);
+        System.out.println("no of years the scl comes under the clg is" +no_yrs);
+    }
+
+}
+class clg extends Management{
+    String clg;
+    int no_yrs;
+    void clg1(){
+        Scanner s=new Scanner(System.in);
+        clg=s.nextLine();
+        no_yrs=s.nextInt();
+        System.out.println("school name "+clg);
+        System.out.println("no of years the clg comes under the clg is" +no_yrs);
+    }
+}
+class placement extends Management{
+    int amt1;
+    String clg;
+    void pla(){
+        Scanner s=new Scanner(System.in);
+        amt1=s.nextInt();
+        clg=s.nextLine();
+        System.out.println("clg name "+clg);
+        System.out.println("amt given to the placement" +amt1);
+    }
+}
+class teachers extends school{
+    int age_t;
+    void sch(){
+        Scanner s=new Scanner(System.in);
+        age_t=s.nextInt();
+        System.out.println("teacher age "+age_t);
+    }
+}
+ class worker extends school{
+    int yrs;
+    void age(){
+        Scanner sc=new Scanner(System.in);
+        yrs=sc.nextInt();
+        System.out.println("yrs of experiance "+yrs);
+    }
+ }
+ class professors extends clg{
+    int age;
+    int salary;
+    void details(){
+        Scanner sc=new Scanner(System.in);
+        age=sc.nextInt();
+        salary=sc.nextInt();
+        System.out.println("age"+age);
+        System.out.println("salary "+salary);
+    }
+ }
+class transport extends clg{
+    int fees_bus;
+    void details_bus(){
+        Scanner sc=new Scanner(System.in);
+        fees_bus=sc.nextInt();
+        System.out.println("fees details of the bus: "+fees_bus);
+    }
+}
+class staffs extends placement{
+    int salary_placement;
+    int count;
+    String name;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        salary_placement=sc.nextInt();
+        count=sc.nextInt();
+        sc.nextLine();
+        name=sc.nextLine();
+        System.out.println("salary: "+salary_placement);
+        System.out.println("count "+count);
+        System.out.println("name of the trainer "+name);
+    }
+}
+class company extends placement{
+    String name;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        name=sc.nextLine();
+        System.out.println("name of the company "+name);
+    }
+}
+class training extends placement{
+    int days;
+    void details(){
+        Scanner sc=new Scanner(System.in);
+        days=sc.nextInt();
+        System.out.println("no . of days of training "+days);
+    }
+}
+class student1 extends worker{
+    int roll;
+    String name;
+    void get_info(){
+        Scanner sc=new Scanner(System.in);
+        roll=sc.nextInt();
+        name =sc.nextLine();
+        System.out.println(" roll number "+roll);
+        System.out.println("name "+name);
+    }
+}
+class second_java{
+        public static void main(String args[]){
+            teachers s1 =new teachers();
+            student1 s2 =new student1();
+            professors s3 =new professors();
+            transport s4 =new transport();
+            staffs s5=new staffs();
+            company s6=new company();
+            training s7=new training();
+            s1.activity();
+            s1.sch();
+            s1.schl1();
+            s2.age();
+            s2.get_info();
+            s2.schl1();
+            s3.activity();
+            s3.clg1();
+            s3.details();            
+            s4.activity();
+            s4.clg1();
+            s4.details_bus();
+            s5.activity();
+            s5.get_details();
+            s5.pla();
+            s6.activity();
+            s6.get_details();
+            s6.pla();
+            s7.activity();
+            s7.details();
+            s7.pla();
+            
+        }
+    }
