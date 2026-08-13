@@ -1,0 +1,389 @@
+METHOD OVERLOADING:
+
+class shapes{
+    void area(){
+        System.out.println("this is area method without parameter");
+    }
+    void area(int a){
+        System.out.println("this is a square");
+        System.out.println(a*a*a);
+    }
+    void area(int a, int b){
+        System.out.println("this is a rectangle");
+        System.out.println("area "+2*a*b);
+    }
+    void area(float a, int b, int c){
+        System.out.println("this is a traiangle");
+        System.out.println("Area "+a*b*c);
+    }
+    void area(double a, int b){
+        System.out.println("this is a circle");
+        System.out.println(a*b*b);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        shapes s=new shapes();
+        s.area();
+        s.area(21);
+        s.area(3.14,2);
+        s.area(17,3);
+        s.area(0.5f,11,26);
+    }
+}
+
+class bank{
+    double bal;
+    void deposit(double amt){
+        bal+=amt;
+        System.out.println("amt deposited "+bal);
+    }
+    void deposit(double amt,String des){
+        bal+=amt;
+        System.out.println("Amt deposited");
+    }
+}
+class savings extends bank{
+    void intrest(double amt){
+        amt*=0.06;
+        bal+=amt;
+        System.out.println("Remainaing balance after intrest "+bal);
+    }
+}
+class current extends savings{
+    @Override
+    void intrest(double amt){
+        amt*=0.01;
+        bal+=amt;
+        System.out.println("Remainaing balance after intrest "+bal);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        savings s=new savings();
+        s.deposit(3000);
+        s.deposit(3000, "for daughter");
+        s.intrest(50005);
+        current c=new current();
+        c.intrest(50000);
+    }
+}
+
+ENCAPSULATION
+
+class abi{
+    String name;
+    int age;
+    private int mark;
+    private long m_no;
+    public void getter(String name , int age, int mark, long m_no){
+        this.name=name;
+        this.age=age;
+        this.mark=mark;
+        this.m_no=m_no;
+    }
+    void set_details(){
+        System.out.println("name "+name);
+        System.out.println("age "+age);
+        System.out.println("total mark "+mark);
+        System.out.println("mobile number "+m_no);       
+    }
+}
+class second_java{
+    public static void main(String args[]){
+    abi a=new abi();
+    a.getter("abinaya", 17, 9, 9080);
+    a.set_details();
+    }
+}
+
+3.
+abstract class employee{
+    private String name;
+    private float salary;
+    void get_name(String name){
+        this.name=name;
+    }
+    void get_salary(float salary){
+        this.salary=salary;
+    }
+    String set_name(){
+        return name;
+    }
+    float set_salary(){
+        return salary;
+    }
+    abstract float bonus();
+    abstract void display(); 
+
+}
+class developers extends employee{
+    @Override
+    float bonus(){
+        float bal=set_salary();
+        float bonus=0.05f;
+        float b=(float)(bonus*bal);
+        return b;
+    }
+    @Override
+    void display(){
+        System.out.println("name "+set_name());
+        System.out.println("salary "+set_salary());
+        System.out.println("bonus is "+ bonus());
+        System.out.println("total salary "+(set_salary()+bonus()));
+    }
+}
+class fullstack extends developers{
+    @Override
+    float bonus(){
+        float bal=set_salary();
+        float bonus=0.10f;
+        float b=(float)(bonus*bal);
+        return b;
+    }
+    @Override
+    void display(){
+        System.out.println("name "+set_name());
+        System.out.println("salary "+set_salary());
+        System.out.println("bonus is "+ bonus());
+        System.out.println("total salary "+(set_salary()+bonus()));
+    }
+}
+class mernstack extends developers{
+    @Override
+    float bonus(){
+        float bal=set_salary();
+        float bonus=0.21f;
+        float b=(float)(bonus*bal);
+        return b;
+    }
+    @Override
+    void display(){
+        System.out.println("name "+set_name());
+        System.out.println("salary "+set_salary());
+        System.out.println("bonus is "+ bonus());
+        System.out.println("total salary "+(set_salary()+bonus()));
+    }
+}
+class manager extends employee{
+    @Override
+    float bonus(){
+        float bal=set_salary();
+        float bonus=0.40f;
+        float b=(float)(bonus*bal);
+        return b;
+    }
+    @Override
+    void display(){
+        System.out.println("Name "+set_name());
+        System.out.println("salary "+set_salary());
+        System.out.println("bonus is "+ bonus());
+        System.out.println("total salary "+(set_salary()+bonus()));
+    }  
+}
+class office_w extends employee{
+    @Override
+    float bonus(){
+        float bal=set_salary();
+        float bonus=0.40f;
+        float b=(float)(bonus*bal);
+        return b;
+    }
+    @Override
+    void display(){
+        System.out.println("name "+set_name());
+        System.out.println("salary "+set_salary());
+        System.out.println("bonus is "+ bonus());
+        System.out.println("total salary "+(set_salary()+bonus()));
+    }  
+}
+
+class second_java{
+    public static void main(String args[]){
+        manager m=new manager();
+        office_w o=new office_w();
+        mernstack mn=new mernstack();
+        fullstack f=new fullstack();
+        m.get_name("Abinaya");
+        m.get_salary(100000);
+        m.set_name();
+        m.set_salary();
+        m.bonus();
+        m.display();
+        o.get_name("aaa");
+        o.get_salary(25000);
+        o.set_name();
+        o.set_salary();
+        o.bonus();
+        o.display();
+        mn.get_name("JayaShri");
+        mn.get_salary(55000);
+        mn.set_name();
+        mn.set_salary();
+        mn.bonus();
+        mn.display();
+        f.get_name("Kavipriya");
+        f.get_salary(60000);
+        f.set_name();
+        f.set_salary();
+        f.bonus();
+        f.display();
+    }
+}
+
+4. EXCEPTION HANDLING
+
+import java.util.*;
+class second_java{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        try {
+            if(b!=0){
+                System.out.println(0);
+            }
+            else{
+                int c=a/b;
+            }
+        } catch (ArithmeticException e) {
+            System.out.println("number is not divisible by zero");
+        }
+        int arr[]=new int[5];
+        try {
+            System.out.println(arr[7]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("can't able to find the element");
+        }
+        String s=null;
+        try {
+            System.out.println(s.charAt(3));
+        } catch (NullPointerException e) {
+            System.out.println("there is no element");
+        }
+    }
+}
+
+5. COMMON EXCEPTION HANDLING:
+
+import java.util.*;
+class second_java{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int arr[]=new int[5];
+        String s=null;
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        try {
+            if(b!=0){
+                System.out.println(0);
+            }
+            else{
+                int c=a/b;
+            }
+            System.out.println(arr[7]);
+            System.out.println(s.charAt(1));
+        } catch (Exception e) {
+            System.out.println("Something went wrong pls try again later");
+        }
+    }
+}
+
+THROW KEYWORD
+
+class bank{
+    int balance;
+    bank(int balance){
+        this.balance=balance;
+    }
+    void withdraw(int amt){
+        if(amt<=balance){
+            balance-=amt;
+            System.out.println("the remaining balance is "+balance);
+        }
+        else{
+            throw new RuntimeException("invalid balance.");
+        }
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        bank b=new bank(400);
+        b.withdraw(4000);
+    }
+}
+
+ANOTHER EXAMPLE FOR THROW KEYWORD
+
+grade system 
+
+import java.util.*;
+class grade{
+    int roll;
+    String name;
+    int totalmark;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        roll=sc.nextInt();
+        sc.nextLine();
+        name=sc.nextLine();
+        totalmark=sc.nextInt();
+        if(totalmark>0 && totalmark<=100){
+            if(totalmark<=50){
+                System.out.println("you scored c grade");
+            }
+            else if(totalmark>50 && totalmark<80){
+                System.out.println("you scored B grade");
+            }
+            else{
+                System.out.println("you have A grade");
+            }
+        }
+        else{
+            throw new RuntimeException("You have enetered wrong mark");
+        }
+    }
+    void display(){
+        System.out.println("name "+name);
+        System.out.println("roll number "+roll);
+        System.out.println("total mark "+totalmark);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        grade g=new grade();
+        g.get_details();
+    }
+}
+
+ANOTHER EXAMPLE :
+
+login page
+
+import java.util.*;
+class login{
+    String mail="aaa21345@gmail.com";
+    String ps="123445Aaaa";
+    void get_info(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter email");
+        String m=sc.nextLine();
+        System.out.println("enter password");
+        String p=sc.nextLine();
+        if(mail.equals(m) && ps.equals(p)){
+            System.out.println("Successfully Logged in ");
+        }
+        else{
+            throw new RuntimeException("your mail id or ps is wrong");
+        }
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        login l=new login();
+        l.get_info();
+    }
+}
+
+selling price detection
+
