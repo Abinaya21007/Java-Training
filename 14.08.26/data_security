@@ -1,0 +1,86 @@
+import java.util.*;
+class customer {
+    private Long acc_no;
+    private String acc_holder_name;
+    private Long mobile_number;
+    private String account_type;
+    private int balance;
+    static Scanner sc =new Scanner(System.in);
+    void set_acc_holder_name(){
+        System.out.println("enter the account holder's name");
+        acc_holder_name=sc.nextLine();
+    }
+    void set_acc_type(){
+        sc.nextLine();
+        System.out.println("enter your account type ");
+        account_type=sc.nextLine();
+    }
+    void set_account_balance(){
+        System.out.println("enter your account balance crtly that is non negative values");
+        balance=sc.nextInt();
+    }
+    void set_acc_no(){
+        System.out.println("enter your account number");
+        acc_no=sc.nextLong();
+    }
+    void set_mobilenumber(){
+        System.out.println("enter your usimg mobike phone number");
+        mobile_number=sc.nextLong();
+    }
+    void display(){
+        System.out.println("Account number : "+acc_no);
+        System.out.println("Account holder name : "+acc_holder_name);
+        System.out.println("Account type : "+account_type);
+        System.out.println("balance : Rs."+balance);
+    }
+    Long get_acc_no(){
+        return acc_no;
+    }
+    String get_acc_holder_name(){
+        return acc_holder_name;
+    }
+    Long get_mobile_number(){
+        return mobile_number;
+    }
+    String get_account_type(){
+        return account_type;
+    }
+    int get_balance(){
+        return balance;
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        customer customer1=new customer();
+        Scanner sc=new Scanner(System.in);
+        customer1.set_acc_holder_name();
+        customer1.set_acc_no();
+        customer1.set_acc_type();
+        customer1.set_account_balance();
+        customer1.set_mobilenumber();
+       while(true){
+        System.out.println("your choices are \n 1.display your full details \n 2. display account number \n3. display balance \n 4.display account holder name \n 5.display mobile number \n 6.account type");
+        int ch=sc.nextInt();
+        if(ch==1){
+            customer1.display();
+        }
+        else if(ch==2){
+            System.out.println("acc_no"+ customer1.get_acc_no());
+        }
+        else if(ch==3){
+            System.out.println("balance "+customer1.get_balance());
+        }
+        else if(ch==4){
+            System.out.println("account holder name "+customer1.get_acc_holder_name());
+        }
+        else if(ch==5){
+            System.out.println("Mobile number "+ customer1.get_mobile_number() );
+        }
+        else if(ch ==6){
+            System.out.println("account type "+customer1.get_account_type());
+        }else{
+            return;
+        }
+       }
+    }
+}
