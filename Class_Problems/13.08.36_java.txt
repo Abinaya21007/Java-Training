@@ -1,0 +1,195 @@
+import java.util.*;
+class InsufficientBalanceException extends RuntimeException{
+    public InsufficientBalanceException(String err){
+        super(err);
+   } 
+}
+class bank{
+    private int balance;
+    int amt;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter balance");
+        balance=sc.nextInt();
+    }
+    void withdraw(){
+        System.out.println("enter withdraw amount :");
+        Scanner sc=new Scanner(System.in);
+        amt=sc.nextInt();
+        if(balance>amt){
+            balance-=amt;
+            System.out.println("remaining balance "+balance);
+        }
+        else{
+            throw new InsufficientBalanceException("you don't have enough balance");
+        }
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        bank b=new bank();
+        b.get_details();
+        b.withdraw();
+    }
+}
+
+by extending exception
+
+import java.util.*;
+class InsufficientBalanceException extends Exception{
+    public InsufficientBalanceException(String err){
+        super(err);
+   } 
+}
+class bank{
+    private int balance;
+    int amt;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter balance");
+        balance=sc.nextInt();
+    }
+    void withdraw() throws InsufficientBalanceException{
+        System.out.println("enter withdraw amount :");
+        Scanner sc=new Scanner(System.in);
+        amt=sc.nextInt();
+        if(balance>amt){
+            balance-=amt;
+            System.out.println("remaining balance "+balance);
+        }
+        else{
+            throw new InsufficientBalanceException("you dont have eough balance");
+        }
+    }
+}
+class second_java {
+    public static void main(String args[]){
+        bank b=new bank();
+        b.get_details();
+        try {
+            b.withdraw();
+        } catch (InsufficientBalanceException e){
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+import java.util.*;
+class InsufficientMarkException extends RuntimeException{
+    public InsufficientMarkException(String err){
+        super(err);
+   } 
+}
+class InvalidMarkException extends RuntimeException{
+    public InvalidMarkException(String e){
+        super(e);
+    }
+}
+class ArrayLengthException extends Exception{
+    public ArrayLengthException(String e){
+        super(e);
+    }
+}
+class second_java {
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of subjects ");
+        int n=sc.nextInt();
+        try {//0< ,100> array lr -5 (compile time)\
+            if(n!=5){
+                throw new ArrayLengthException("enter only 5 sub");
+            }
+        } catch (ArrayLengthException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        int arr[]=new int[n];
+        int avg=0;
+        for (int i = 0; i <n; i++) {            
+                arr[i]=sc.nextInt();
+        }
+            for(int i=0;i<n;i++){
+            try {
+                if(arr[i]<0){
+                    throw new InsufficientMarkException(("enter crt mark"));
+                }
+                if(arr[i]>100){
+                    throw new InvalidMarkException(("enter your original mark"));
+                }
+                avg+=arr[i];
+            } catch (InsufficientMarkException e) {
+                System.out.println(e.getMessage());
+                return;
+            }
+            catch(InvalidMarkException e){
+                System.out.println(e.getMessage());
+                return;
+            }
+            }
+        System.out.println(avg/n);   
+    }
+}
+
+BUBBLE SORT 
+
+import java.util.*;
+class second_java{
+    public static void main(String args[]){
+        ArrayList <Integer> list=new ArrayList<>();
+        Scanner sc=new Scanner(System.in);
+        int a;
+        while (true) { 
+            a=sc.nextInt();
+            if(a==-1){
+                break;
+            }
+            else{
+                list.add(a);
+            }
+        }
+        for(int i=0;i<=list.size()-2;i++){
+            for(int j=0;j<=list.size()-2-i;j++){
+                if(list.get(j)>list.get(j+1)){
+                    int t=list.get(j);         // to get a value in array list 
+                    list.set(j,list.get(j+1));  // to set the value in array list 1 st index then value
+                    list.set(j+1,t);
+                }
+            }
+        }
+        System.out.println("sorted Array "+list);
+    }
+}
+
+sliding window 
+
+import java.util.*;
+class second_java{
+    public static void main(String args[]){
+        ArrayList <Integer> list=new ArrayList<>();
+        Scanner sc=new Scanner(System.in);
+        int a;
+        while (true) { 
+            a=sc.nextInt();
+            if(a==-1){
+                break;
+            }
+            else{
+                list.add(a);
+            }
+        }
+        int s=0;// searches for the element that is not divided by 10 
+        int c=0; // divide aagatha number ah anga podanum
+        for(s=0;s<list.size();s++){
+            if(list.get(s)%10!=0){
+                int t=list.get(s);
+                for(int i=s;i>c;i--){
+                     //antha divide aana number ah temp nu oru variable la store panum
+                    list.set(i, list.get(i - 1));
+                }
+                list.set(c, t);
+                c++;
+          }
+        }
+        System.out.println("arranged list "+list);
+    }
+}
