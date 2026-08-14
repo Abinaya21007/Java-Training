@@ -1,0 +1,37 @@
+import java.util.*;
+class bank1{
+	static String name="Mariamman Indian bank name ";
+	int accountnumber;
+	String holdername;
+	int balance;
+	bank1(int accountnumber,String holdername,int balance){
+		this.accountnumber=accountnumber;
+		this.holdername=holdername;
+		this.balance=balance;
+	}
+	void display() {
+		System.out.println("branch name:"+name);
+		System.out.println("accountnumber:"+accountnumber);
+		System.out.println("holdername:"+holdername);
+		System.out.println("balance:"+balance);
+	}
+}
+
+public class second_java {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter number of accounts");
+		int n=sc.nextInt();
+		for(int i=0;i<n;i++) {
+		System.out.println("enter holdername,accountnumber,balance");
+		sc.nextLine();
+		String holdername=sc.nextLine();
+		int number=sc.nextInt();
+	    int balance=sc.nextInt();
+	    bank1 b=new bank1(number,holdername,balance);
+	    b.display();
+		}
+		
+	}
+
+}
