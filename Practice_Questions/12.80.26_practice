@@ -1,0 +1,168 @@
+import java.util.*;
+abstract class employee{
+    private int id;
+    private String name;
+    private float bsalary;
+    abstract void calculatesalary();
+    void set_details(int id,String name, float bsalary){
+        this.id=id;
+        this.name=name;
+        this.bsalary=bsalary;
+    }
+    int get_id(){
+        return id;
+    }
+    String get_name(){
+        return name;
+    }
+    float get_bsalary(){
+        return bsalary;
+    }
+    void display(){
+        System.out.println("empl id "+id);
+        System.out.println("Emp name: "+name);
+        System.out.println("Employee basic salary "+bsalary);
+    }
+}
+class doctor extends employee{
+    float tsalary;
+    @Override
+    void calculatesalary(){
+        float sal= get_bsalary();
+        float allowance=0.50f;
+        tsalary=sal+(sal*allowance);
+    }
+    @Override
+    void display(){
+        System.out.println("empl id "+get_id());
+        System.out.println("Emp name: "+get_name());
+        System.out.println("Employee basic salary "+get_bsalary());
+        System.out.println("Total salary "+tsalary);
+    }
+}
+class nurse extends employee{
+    float tsalary;
+    @Override
+    void calculatesalary(){
+        float sal= get_bsalary();
+        float allowance=0.10f;
+        tsalary=sal+(sal*allowance);
+    }
+    @Override
+    void display(){
+        System.out.println("empl id "+get_id());
+        System.out.println("Emp name: "+get_name());
+        System.out.println("Employee basic salary "+get_bsalary());
+        System.out.println("Total salary "+tsalary);
+    }
+}class lab_tech extends employee{
+    float tsalary;
+    @Override
+    void calculatesalary(){
+        float sal= get_bsalary();
+        float allowance=0.05f;
+        tsalary=sal+(sal*allowance);
+    }
+    @Override
+    void display(){
+        System.out.println("empl id "+get_id());
+        System.out.println("Emp name: "+get_name());
+        System.out.println("Employee basic salary "+get_bsalary());
+        System.out.println("Total salary "+tsalary);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        doctor d=new doctor();
+        nurse n=new nurse();
+        lab_tech l=new lab_tech();
+        employee e[]={d,n,l};
+        Scanner sc=new Scanner(System.in);
+        int a ;
+        String b;
+        float c;
+        for (int i = 0; i < 3; i++) {
+            a=sc.nextInt();
+            sc.nextLine();
+            b=sc.nextLine();
+            c=sc.nextFloat();
+            e[i].set_details(a, b, c);
+            e[i].get_name();
+            e[i].get_id();
+            e[i].get_bsalary();
+            e[i].calculatesalary();
+            e[i].display();
+        }
+    }
+}
+
+import java.util.*;
+abstract class bank{
+    int accno;
+    String holdername;
+    int bal;
+    void get_details(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the account number");
+        accno=sc.nextInt();
+        sc.nextLine();
+        System.out.println("enter the account holder's name");
+        holdername=sc.nextLine();
+        System.out.println("enter the account balance");
+        bal=sc.nextInt();
+    }
+    abstract void withdraw();
+    void deposit(int amt){
+        bal+=amt;
+        System.out.println("amt deposited "+bal);
+    }
+    void display_details(){
+        System.out.println("account number "+accno);
+        System.out.println("holder  name "+holdername);
+        System.out.println("current balance "+bal);
+    }
+}
+class savings extends bank{
+    @Override
+    void withdraw(){
+        int amt;
+        Scanner sc=new Scanner(System.in);
+        amt=sc.nextInt();
+        int d=bal-1000;
+        if(d >amt){
+            System.out.println("your balance is" +(bal-amt));
+        }
+        else{
+            System.out.println("you don't have enough balance");
+        }
+    }
+}
+class current extends bank{
+    @Override
+    void withdraw(){
+        int amt;
+        Scanner sc=new Scanner(System.in);
+        amt=sc.nextInt();
+        int d=5000;
+        if(d <amt && bal>amt){
+            System.out.println("your balance is" +(bal -amt));
+        }
+        else{
+            System.out.println("you dont have enough balance");
+        }
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        savings s=new savings();
+        current c=new current();
+        s.get_details();
+        s.display_details();
+        s.deposit(5000);
+        s.withdraw();
+        c.get_details();
+        c.display_details();
+        c.deposit(1500);
+        c.withdraw();
+    }
+}
