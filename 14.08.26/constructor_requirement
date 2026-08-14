@@ -1,0 +1,43 @@
+import java.util.*;
+class customer {
+    private Long acc_no;
+    private String acc_holder_name;
+    private Long mobile_number;
+    private String account_type;
+    private float balance;
+    customer(float balance,Long acc_no){
+        this.balance=balance;
+        this.acc_no=acc_no;
+    }
+    static Scanner sc =new Scanner(System.in);
+    void set_acc_holder_name(){
+        System.out.println("enter the account holder's name");
+        acc_holder_name=sc.nextLine();
+    }
+    void set_acc_type(){
+        System.out.println("enter your account type ");
+        account_type=sc.nextLine();
+    }
+    void set_mobilenumber(){
+        System.out.println("enter your usimg mobike phone number");
+        mobile_number=sc.nextLong();
+    }
+    void display(){
+        System.out.println("Account number : "+acc_no);
+        System.out.println("Account holder name : "+acc_holder_name);
+        System.out.println("Account type : "+account_type);
+        System.out.println("balance : Rs."+balance);
+        System.out.println("mobile number "+mobile_number);
+    }
+   
+}
+class second_java{
+    public static void main(String args[]){
+        customer customer1=new customer(5000,(long)92852631);
+        Scanner sc=new Scanner(System.in);
+        customer1.set_acc_holder_name();
+        customer1.set_acc_type();
+        customer1.set_mobilenumber();
+        customer1.display();
+    }
+}
