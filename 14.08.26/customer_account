@@ -1,0 +1,39 @@
+import java.util.*;
+class customer {
+    private Long acc_no;
+    String acc_holder_name;
+    String account_type;
+    private int balance;
+    void get_details(){
+        Scanner sc =new Scanner(System.in);
+        System.out.println("enter your account number");
+        acc_no=sc.nextLong();
+        sc.nextLine();
+        System.out.println("enter the account holder's name");
+        acc_holder_name=sc.nextLine();
+        System.out.println("enter your account type ");
+        account_type=sc.nextLine();
+        System.out.println("enter your account balance crtly that is non negative values");
+        balance=sc.nextInt();
+    }
+    
+    void display(){
+        System.out.println("Account number : "+acc_no);
+        System.out.println("Account holder name : "+acc_holder_name);
+        System.out.println("Account type : "+account_type);
+        System.out.println("balance : Rs."+balance);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        customer customer1=new customer();
+        customer customer2=new customer();
+        customer customer3=new customer();
+        customer1.get_details();
+        customer1.display();
+        customer2.get_details();
+        customer2.display();
+        customer3.get_details();
+        customer3.display();
+    }
+}
