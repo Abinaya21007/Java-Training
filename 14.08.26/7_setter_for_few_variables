@@ -1,0 +1,68 @@
+import java.util.*;
+class customer {
+    private Long acc_no;
+    private String acc_holder_name;
+    private Long mobile_number;
+    private String acc_type;
+    private float balance;
+    static Scanner sc=new Scanner(System.in);
+    customer(Long acc_no,String acc_type,float balance){
+        this.acc_no=acc_no;
+        this.balance=balance;
+        this.acc_type=acc_type;
+    }   
+    void set_mobilenumber(){
+        System.out.println("enter your usimg mobile phone number");
+        mobile_number=sc.nextLong();
+    }
+    void set_acc_holder_name(){
+        System.out.println("enter your name");
+        acc_holder_name=sc.nextLine();
+    }
+     Long get_acc_no(){
+        return acc_no;
+    }
+    String get_acc_holder_name(){
+        return acc_holder_name;
+    }
+    Long get_mobile_number(){
+        return mobile_number;
+    }
+    String get_account_type(){
+        return acc_type;
+    }
+    float get_balance(){
+        return balance;
+    }
+    void withdraw(){
+        System.out.println("enter withdraw amount");
+        int amt=sc.nextInt();
+        if(balance>amt){
+            balance-=amt;
+            System.out.println("your remaining balance "+balance);
+        }
+        else{
+            System.out.println("you dont have enough balance");
+        }
+    }
+    void deposit(){
+        System.out.println("enter the deposited amount");
+        int amt=sc.nextInt();
+        balance+=amt;
+        System.out.println("your remaining balance "+balance);
+    }
+}
+class second_java{
+    public static void main(String args[]){
+        customer customer1=new customer((long)92852631,"Savings Account",5000f);
+        customer1.set_acc_holder_name();
+        customer1.set_mobilenumber();
+        System.out.println("Account holder name "+customer1.get_acc_holder_name());
+        System.out.println("Account number "+customer1.get_acc_no());
+        System.out.println("Account type " +customer1.get_account_type());
+        System.out.println("Balance "+customer1.get_balance());
+        System.out.println("Mobile number "+customer1.get_mobile_number());
+        customer1.withdraw();
+        customer1.deposit();
+    }   
+}
